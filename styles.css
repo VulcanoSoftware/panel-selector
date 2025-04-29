@@ -20,9 +20,14 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
+    padding-top: 100px; 
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: flex-start;
 }
 
 .theme-toggle {
@@ -36,11 +41,13 @@ body {
     box-shadow: 0 2px 5px var(--shadow-color);
     display: flex;
     align-items: center;
+    justify-content: center; 
     cursor: pointer;
     overflow: hidden;
     border: none;
     padding: 0;
     transition: background-color 0.3s, width 0.3s, height 0.3s;
+    z-index: 999;
 }
 
 .theme-toggle.dark {
@@ -121,8 +128,7 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 8px var(--shadow-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
-    margin-left: 40px;
-    margin-top: 30px;
+    margin: 40px 0; 
 }
 
 .combined-element:hover {
@@ -189,28 +195,136 @@ body {
 .servers-container {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
-    margin-top: 30px;
+    align-items: center; 
+    justify-content: center; 
+    gap: 40px; 
+    margin-top: 40px; 
+    flex-wrap: wrap; 
 }
 
 .top-right-container {
     margin-left: 20px;
 }
 
-/* Nieuwe stijlen voor de flexbox container in de tweede rij */
 .servers-second-row {
     display: flex;
-    gap: 20px;
-    margin-left: 20px;
+    gap: 40px; 
+    justify-content: center; 
+    margin-top: 40px;
 }
 
-/* Aangepaste stijlen voor de combined-element in de tweede rij */
 .servers-second-row .combined-element {
-    margin-top: 30px;
-    margin-left: 20px;
+    margin: 40px 0; 
 }
 
-/* Extra stijl voor het rechtse element in de tweede rij */
 .servers-second-row .combined-element:last-child {
     margin-left: 22px;
-} 
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container, .main-content {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+h1, h2, h3, p {
+    word-wrap: break-word;
+}
+
+@media (max-width: 1030px) {
+    body {
+        padding-top: 80px;
+    }
+
+    .main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .servers-container,
+    .servers-second-row {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        gap: 30px; 
+    }
+
+    .combined-element,
+    .servers-second-row .combined-element {
+        margin: 40px 0; 
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .top-right-container {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .theme-toggle {
+        width: 90%;
+        max-width: 280px;
+        right: 10px;
+        top: 10px;
+    }
+
+    .toggle-text {
+        font-size: 16px;
+        margin-left: 55px;
+    }
+
+    .theme-toggle.dark .toggle-circle {
+        transform: translateX(220px);
+    }
+
+    .theme-toggle.dark:hover .toggle-circle {
+        transform: translateX(105px);
+    }
+
+    button, .server-btn {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    .toggle-text {
+        font-size: 14px;
+    }
+
+    .combined-element {
+        transform: none !important;
+    }
+    .servers-second-row .combined-element:last-child {
+        margin-left: 0px;
+    }
+}
